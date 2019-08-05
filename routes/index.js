@@ -35,7 +35,8 @@ router.get('/image/:id', async ( req, res) => {
 });
 router.get('/image/:id/delete', async (req, res) => {
     const {id} = req.params;
-    const image = await Usuario.findByIdAndDelete(id);
+    const image = await Usuario.findById(id);
+    image.remove();
     res.redirect('/');
 });
 router.get('/imageedit/:id', async ( req, res) => {
