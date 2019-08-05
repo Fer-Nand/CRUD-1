@@ -1,4 +1,6 @@
-const {Schema, model} = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
 
 const usuarioSchema = new Schema({
     nombre: { type: String},
@@ -10,4 +12,4 @@ const usuarioSchema = new Schema({
     create_at: { type: Date, default: Date.now()}
 });
 
-module.exports = model('Usuario', usuarioSchema);
+module.exports =mongoose.model('Usuario', usuarioSchema);
