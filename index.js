@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+var mongoose = require('mongoose'); 
 
 
 const { format } = require('timeago.js');
@@ -8,7 +9,14 @@ const { format } = require('timeago.js');
 
 //Initializations
 const app = express();
-require('./database');  
+var database = require('./database');  
+mongoose.connect(process.env.CUSTOMCONNSTR_MyConnectionString || database.localUrl, {
+  useNewUrlParser: true
+})
+.then(db => console.log('DB is connected'))
+.catch(err => console.log(err));
+
+mongoose.set('useFindAndModify', false);
 
 //Settings
 app.set('port', process.env.PORT || 3000);
