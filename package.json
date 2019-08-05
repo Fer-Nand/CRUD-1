@@ -15,5 +15,8 @@
     "mongoose": "4.10.8",
     "morgan": "~1.9.1",
     "timeago.js": "^4.0.0-beta.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
